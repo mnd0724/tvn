@@ -1,14 +1,3 @@
----
-title: "TVN"
-format: html
-editor: visual
----
-
-```{}
-```
-
-```{r}
-#| echo: false
 #----------------------------------------------------------#
 #Automatización Promedio Rating Hogares
 #----------------------------------------------------------#
@@ -309,5 +298,3 @@ saveWorkbook(wb, archivo_destino, overwrite = TRUE)
 
 
 
-
-```

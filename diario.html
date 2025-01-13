@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -96,19 +62,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<pre><code></code></pre>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>instalar_y_cargar <span class="ot">&lt;-</span> <span class="cf">function</span>(paquetes) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  paquetes_faltantes <span class="ot">&lt;-</span> paquetes[<span class="sc">!</span>(paquetes <span class="sc">%in%</span> <span class="fu">installed.packages</span>()[, <span class="st">"Package"</span>])]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(paquetes_faltantes) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Instalando paquetes faltantes:"</span>, paquetes_faltantes, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(paquetes_faltantes)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(paquetes, require, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>paquetes_necesarios <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"readxl"</span>, <span class="st">"openxlsx"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">instalar_y_cargar</span>(paquetes_necesarios)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Cargando paquete requerido: readxl</code></pre>
 </div>
@@ -122,43 +77,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [[2]]
 [1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Ingresar excel</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Selecciona el archivo 24H</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Selecciona el archivo 24H</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>archivo_excel <span class="ot">&lt;-</span> <span class="fu">file.choose</span>()</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Selecciona el archivo PEAK</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Selecciona el archivo PEAK</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>archivo_excel2 <span class="ot">&lt;-</span> <span class="fu">file.choose</span>()</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Selecciona el archivo Plantilla Rating</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Selecciona el archivo Plantilla Rating</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>archivo_destino <span class="ot">&lt;-</span> <span class="fu">file.choose</span>()</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#1. Hojas del Excel ----</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (<span class="fu">file.exists</span>(archivo_excel)) {</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>   hojas <span class="ot">&lt;-</span> <span class="fu">excel_sheets</span>(archivo_excel)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">cat</span>(<span class="st">"Hojas disponibles en el archivo:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(hojas)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(hojas)) {</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>     <span class="fu">assign</span>(<span class="fu">paste0</span>(<span class="st">"data"</span>, i), <span class="fu">as.data.frame</span>(<span class="fu">read_excel</span>(archivo_excel, <span class="at">sheet =</span> hojas[i])))</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>   }</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a> } <span class="cf">else</span> {</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>   <span class="fu">cat</span>(<span class="st">"El archivo no se encuentra en la ruta especificada. Por favor verifica la ruta.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hojas disponibles en el archivo:
 [1] "odos Básico(Personas 25-64 ABC)" "Períodos Básico(Total Hogares)" 
@@ -188,102 +115,6 @@ New names:
 • `` -&gt; `...8`
 • `` -&gt; `...9`</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#2. Modificar Data ----</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------# </span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">colnames</span>(data2)<span class="ot">&lt;-</span><span class="fu">as.character</span>(data2[<span class="dv">2</span>,])</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a> data2 <span class="ot">&lt;-</span> data2[<span class="sc">-</span><span class="dv">2</span>, ] </span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a> <span class="fu">colnames</span>(data4)<span class="ot">&lt;-</span><span class="fu">as.character</span>(data4[<span class="dv">1</span>,])</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a> data4<span class="ot">&lt;-</span>data4[<span class="sc">-</span><span class="dv">1</span>,]</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a> data4 <span class="ot">&lt;-</span> data4[data4<span class="sc">$</span>Título <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"24 HORAS CENTRAL"</span>, <span class="st">"TELETRECE"</span>) <span class="sc">&amp;</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>                  data4<span class="sc">$</span>Canal <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Television Nacional CH7"</span>, <span class="st">"Canal 13"</span>), ]</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a> <span class="fu">colnames</span>(data3)<span class="ot">&lt;-</span><span class="fu">as.character</span>(data3[<span class="dv">1</span>,])</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a> data3<span class="ot">&lt;-</span>data3[<span class="sc">-</span><span class="dv">1</span>,]</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a> data3 <span class="ot">&lt;-</span> data3[data3<span class="sc">$</span>Título <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"24 HORAS CENTRAL"</span>, <span class="st">"TELETRECE"</span>) <span class="sc">&amp;</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>                  data3<span class="sc">$</span>Canal <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Television Nacional CH7"</span>, <span class="st">"Canal 13"</span>), ]</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="do">##2.1. Formato de Hora ----</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a> data3<span class="sc">$</span><span class="st">`</span><span class="at">Hora Inicio</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(data3<span class="sc">$</span><span class="st">`</span><span class="at">Hora Inicio</span><span class="st">`</span>, <span class="at">format =</span> <span class="st">"%H:%M:%S"</span>)</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a> data3<span class="sc">$</span>Duración1 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"^0+"</span>, <span class="st">""</span>, data3<span class="sc">$</span>Duración)  <span class="co"># Eliminar ceros iniciales</span></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a> data3<span class="sc">$</span>Duración1 <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="fu">strsplit</span>(data3<span class="sc">$</span>Duración1, <span class="st">":"</span>), <span class="cf">function</span>(x) {</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>   minutos <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(x[<span class="dv">1</span>])</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>   segundos <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(x[<span class="dv">2</span>])</span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>   <span class="fu">return</span>(minutos <span class="sc">*</span> <span class="dv">60</span> <span class="sc">+</span> segundos)</span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a> })</span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a> data3<span class="sc">$</span><span class="st">`</span><span class="at">Hora Final</span><span class="st">`</span> <span class="ot">&lt;-</span> data3<span class="sc">$</span><span class="st">`</span><span class="at">Hora Inicio</span><span class="st">`</span> <span class="sc">+</span> <span class="fu">as.difftime</span>(data3<span class="sc">$</span>Duración1, <span class="at">units =</span> <span class="st">"secs"</span>)</span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a> data3<span class="sc">$</span><span class="st">`</span><span class="at">Hora Rango</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">format</span>(data3<span class="sc">$</span><span class="st">`</span><span class="at">Hora Inicio</span><span class="st">`</span>, <span class="st">"%H:%M"</span>), <span class="st">"-"</span>, <span class="fu">format</span>(data3<span class="sc">$</span><span class="st">`</span><span class="at">Hora Final</span><span class="st">`</span>, <span class="st">"%H:%M"</span>))</span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a> fecha_ayer <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="dv">1</span>, <span class="st">"%d-%m-%Y"</span>)</span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a> dia_semana_ayer <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">toTitleCase</span>(<span class="fu">format</span>(<span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="dv">1</span>, <span class="st">"%A"</span>))</span>
-<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a><span class="co">#4. Agregar valores al Excel ----</span></span>
-<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------# </span></span>
-<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a><span class="do">##4.1. Semana ----</span></span>
-<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------# </span></span>
-<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a><span class="do">###4.1.1. Título ----</span></span>
-<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------# </span></span>
-<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a> wb <span class="ot">&lt;-</span> <span class="fu">loadWorkbook</span>(archivo_destino)</span>
-<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a> titulo_actual <span class="ot">&lt;-</span> <span class="fu">readWorkbook</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">colNames =</span> <span class="cn">FALSE</span>, <span class="at">rows =</span> <span class="dv">3</span>, <span class="at">cols =</span> <span class="dv">3</span>)</span>
-<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a> nuevo_titulo <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"PROMEDIO RATING HOGARES "</span>, fecha_ayer, <span class="st">" CANAL 24 HORAS"</span>)</span>
-<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a> <span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, nuevo_titulo, <span class="at">startCol =</span> <span class="dv">3</span>, <span class="at">startRow =</span> <span class="dv">3</span>)</span>
-<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a> <span class="fu">saveWorkbook</span>(wb, archivo_destino, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------# </span></span>
-<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a><span class="do">###4.1.2. Promedio Rating ----</span></span>
-<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------# </span></span>
-<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> dia_semana_ayer, <span class="at">startCol =</span> <span class="dv">3</span>, <span class="at">startRow =</span> <span class="dv">6</span>)</span>
-<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data2[<span class="dv">2</span>, <span class="st">"24 Horas SD+HD"</span>], <span class="at">startCol =</span> <span class="dv">4</span>, <span class="at">startRow =</span> <span class="dv">6</span>)</span>
-<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data2[<span class="dv">2</span>, <span class="st">"CNN Chile"</span>], <span class="at">startCol =</span> <span class="dv">5</span>, <span class="at">startRow =</span> <span class="dv">6</span>)</span>
-<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data2[<span class="dv">2</span>, <span class="st">"T13 en vivo"</span>], <span class="at">startCol =</span> <span class="dv">6</span>, <span class="at">startRow =</span> <span class="dv">6</span>)</span>
-<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data2[<span class="dv">2</span>, <span class="st">"Meganoticias Ahora"</span>], <span class="at">startCol =</span> <span class="dv">7</span>, <span class="at">startRow =</span> <span class="dv">6</span>)</span>
-<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data2[<span class="dv">2</span>, <span class="st">"TNT Sports Premium"</span>], <span class="at">startCol =</span> <span class="dv">8</span>, <span class="at">startRow =</span> <span class="dv">6</span>)</span>
-<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data2[<span class="dv">2</span>, <span class="st">"ESPN"</span>], <span class="at">startCol =</span> <span class="dv">9</span>, <span class="at">startRow =</span> <span class="dv">6</span>)</span>
-<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------# </span></span>
-<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a><span class="do">##4.2. Diario ----</span></span>
-<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------# </span></span>
-<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> fecha_ayer, <span class="at">startCol =</span> <span class="dv">3</span>, <span class="at">startRow =</span> <span class="dv">8</span>)</span>
-<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data3[data3<span class="sc">$</span>Título <span class="sc">==</span> <span class="st">"24 HORAS CENTRAL"</span>, <span class="st">"Hora Rango"</span>], <span class="at">startCol =</span> <span class="dv">4</span>, <span class="at">startRow =</span> <span class="dv">9</span>)</span>
-<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data4[data4<span class="sc">$</span>Canal <span class="sc">==</span> <span class="st">"Television Nacional CH7"</span>, <span class="st">"24 Horas SD+HD"</span>], <span class="at">startCol =</span> <span class="dv">5</span>, <span class="at">startRow =</span> <span class="dv">9</span>)</span>
-<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data4[data4<span class="sc">$</span>Canal <span class="sc">==</span> <span class="st">"Television Nacional CH7"</span>, <span class="st">"Television Nacional CH7"</span>], <span class="at">startCol =</span><span class="dv">6</span>, <span class="at">startRow =</span> <span class="dv">9</span>)</span>
-<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data4[data4<span class="sc">$</span>Canal <span class="sc">==</span> <span class="st">"Television Nacional CH7"</span>, <span class="st">"TVN + 24H"</span>], <span class="at">startCol =</span><span class="dv">7</span>, <span class="at">startRow =</span> <span class="dv">9</span>)</span>
-<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data3[data3<span class="sc">$</span>Canal <span class="sc">==</span> <span class="st">"Television Nacional CH7"</span>, <span class="st">"24 Horas SD+HD"</span>], <span class="at">startCol =</span> <span class="dv">8</span>, <span class="at">startRow =</span> <span class="dv">9</span>)</span>
-<span id="cb15-60"><a href="#cb15-60" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data3[data3<span class="sc">$</span>Canal <span class="sc">==</span> <span class="st">"Television Nacional CH7"</span>, <span class="st">"Television Nacional CH7"</span>], <span class="at">startCol =</span><span class="dv">9</span>, <span class="at">startRow =</span> <span class="dv">9</span>)</span>
-<span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data3[data3<span class="sc">$</span>Canal <span class="sc">==</span> <span class="st">"Television Nacional CH7"</span>, <span class="st">"TVN + 24H"</span>], <span class="at">startCol =</span><span class="dv">10</span>, <span class="at">startRow =</span> <span class="dv">9</span>)  </span>
-<span id="cb15-62"><a href="#cb15-62" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb15-63"><a href="#cb15-63" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> fecha_ayer, <span class="at">startCol =</span> <span class="dv">3</span>, <span class="at">startRow =</span> <span class="dv">11</span>)</span>
-<span id="cb15-64"><a href="#cb15-64" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data3[data3<span class="sc">$</span>Título <span class="sc">==</span> <span class="st">"TELETRECE"</span>, <span class="st">"Hora Rango"</span>], <span class="at">startCol =</span> <span class="dv">4</span>, <span class="at">startRow =</span> <span class="dv">12</span>)</span>
-<span id="cb15-65"><a href="#cb15-65" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data4[data4<span class="sc">$</span>Canal <span class="sc">==</span> <span class="st">"Canal 13"</span>, <span class="st">"T13 en vivo"</span>], <span class="at">startCol =</span> <span class="dv">5</span>, <span class="at">startRow =</span> <span class="dv">12</span>)</span>
-<span id="cb15-66"><a href="#cb15-66" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data4[data4<span class="sc">$</span>Canal <span class="sc">==</span> <span class="st">"Canal 13"</span>, <span class="st">"Canal 13"</span>], <span class="at">startCol =</span><span class="dv">6</span>, <span class="at">startRow =</span> <span class="dv">12</span>)</span>
-<span id="cb15-67"><a href="#cb15-67" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data4[data4<span class="sc">$</span>Canal <span class="sc">==</span> <span class="st">"Canal 13"</span>, <span class="st">"T13 + C13"</span>], <span class="at">startCol =</span><span class="dv">7</span>, <span class="at">startRow =</span> <span class="dv">12</span>)</span>
-<span id="cb15-68"><a href="#cb15-68" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data3[data3<span class="sc">$</span>Canal <span class="sc">==</span> <span class="st">"Canal 13"</span>, <span class="st">"T13 en vivo"</span>], <span class="at">startCol =</span> <span class="dv">8</span>, <span class="at">startRow =</span> <span class="dv">12</span>)</span>
-<span id="cb15-69"><a href="#cb15-69" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data3[data3<span class="sc">$</span>Canal <span class="sc">==</span> <span class="st">"Canal 13"</span>, <span class="st">"Canal 13"</span>], <span class="at">startCol =</span><span class="dv">9</span>, <span class="at">startRow =</span> <span class="dv">12</span>)</span>
-<span id="cb15-70"><a href="#cb15-70" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> data3[data3<span class="sc">$</span>Canal <span class="sc">==</span> <span class="st">"Canal 13"</span>, <span class="st">"T13 + C13"</span>], <span class="at">startCol =</span><span class="dv">10</span>, <span class="at">startRow =</span> <span class="dv">12</span>)</span>
-<span id="cb15-71"><a href="#cb15-71" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb15-72"><a href="#cb15-72" aria-hidden="true" tabindex="-1"></a><span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> fecha_ayer, <span class="at">startCol =</span> <span class="dv">3</span>, <span class="at">startRow =</span> <span class="dv">14</span>)</span>
-<span id="cb15-73"><a href="#cb15-73" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb15-74"><a href="#cb15-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el archivo actualizado</span></span>
-<span id="cb15-75"><a href="#cb15-75" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWorkbook</span>(wb, archivo_destino, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-76"><a href="#cb15-76" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb15-77"><a href="#cb15-77" aria-hidden="true" tabindex="-1"></a><span class="do">###4.2.1. Datos Peak ----</span></span>
-<span id="cb15-78"><a href="#cb15-78" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb15-79"><a href="#cb15-79" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(archivo_excel2)) {</span>
-<span id="cb15-80"><a href="#cb15-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"El archivo PEAK 24H.xlsx existe en la ruta especificada.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb15-81"><a href="#cb15-81" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-82"><a href="#cb15-82" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Obtener la lista de hojas del archivo Excel</span></span>
-<span id="cb15-83"><a href="#cb15-83" aria-hidden="true" tabindex="-1"></a>  hojas <span class="ot">&lt;-</span> <span class="fu">excel_sheets</span>(archivo_excel2)</span>
-<span id="cb15-84"><a href="#cb15-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Hojas disponibles en el archivo PEAK 24H.xlsx:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb15-85"><a href="#cb15-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(hojas)</span>
-<span id="cb15-86"><a href="#cb15-86" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-87"><a href="#cb15-87" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Leer la primera hoja del archivo Excel y guardarla como un data frame</span></span>
-<span id="cb15-88"><a href="#cb15-88" aria-hidden="true" tabindex="-1"></a>  peak_data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">read_excel</span>(archivo_excel2, <span class="at">sheet =</span> hojas[<span class="dv">1</span>]))</span>
-<span id="cb15-89"><a href="#cb15-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Data frame creado: peak_data</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb15-90"><a href="#cb15-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-91"><a href="#cb15-91" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mostrar las primeras filas del data frame creado</span></span>
-<span id="cb15-92"><a href="#cb15-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Primeras filas de peak_data:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb15-93"><a href="#cb15-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">head</span>(peak_data))</span>
-<span id="cb15-94"><a href="#cb15-94" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb15-95"><a href="#cb15-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"El archivo PEAK 24H.xlsx no se encuentra en la ruta especificada. Por favor verifica la ruta.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb15-96"><a href="#cb15-96" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>El archivo PEAK 24H.xlsx existe en la ruta especificada.
 Hojas disponibles en el archivo PEAK 24H.xlsx:
@@ -305,178 +136,33 @@ Primeras filas de peak_data:
 5                                                    14:10           1.58
 6                                                    13:48           1.38</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">colnames</span>(peak_data)<span class="ot">&lt;-</span><span class="fu">as.character</span>(peak_data[<span class="dv">2</span>,])</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a> peak_data <span class="ot">&lt;-</span> peak_data[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), ] </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a> <span class="co"># Crear una función para ajustar las horas de Franjas</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a> adjust_hours <span class="ot">&lt;-</span> <span class="cf">function</span>(time_string) {</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Separar la hora y los minutos</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>   time_parts <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(time_string, <span class="st">":"</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>   hour <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(time_parts[<span class="dv">1</span>])</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>   minutes <span class="ot">&lt;-</span> time_parts[<span class="dv">2</span>]</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Ajustar la hora si es mayor o igual a 24</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> (hour <span class="sc">&gt;=</span> <span class="dv">24</span>) {</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>     hour <span class="ot">&lt;-</span> hour <span class="sc">-</span> <span class="dv">24</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>   }</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Formatear la nueva hora y mantener los minutos</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>   adjusted_time <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%02d:%s"</span>, hour, minutes)</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>   <span class="fu">return</span>(adjusted_time)</span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a> <span class="co"># Aplicar la función a la variable Franjas en peak_data</span></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a> peak_data<span class="sc">$</span>Franjas <span class="ot">&lt;-</span> <span class="fu">sapply</span>(peak_data<span class="sc">$</span>Franjas, adjust_hours)</span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a> peak_data<span class="sc">$</span>Franjas<span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(peak_data<span class="sc">$</span>Franjas, <span class="at">format =</span> <span class="st">"%H:%M"</span>)</span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="do">####4.2.1.1. 24H ----</span></span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a> <span class="co"># Función para encontrar el intervalo continuo de tiempo con el puntaje máximo</span></span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a> encontrar_peak_continuo1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data, variable, tiempo) {</span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>   max_valor <span class="ot">&lt;-</span> <span class="fu">max</span>(data[[variable]], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>   max_franjas <span class="ot">&lt;-</span> <span class="fu">sort</span>(data[data[[variable]] <span class="sc">==</span> max_valor, tiempo])</span>
-<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Encontrar los intervalos continuos</span></span>
-<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>   diferencias <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">diff</span>(max_franjas))</span>
-<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>   cortes <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(diferencias <span class="sc">!=</span> <span class="dv">60</span>)</span>
-<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>   intervalos <span class="ot">&lt;-</span> <span class="fu">split</span>(max_franjas, cortes)</span>
-<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>   intervalos_continuos <span class="ot">&lt;-</span> <span class="fu">lapply</span>(intervalos, <span class="cf">function</span>(x) {</span>
-<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
-<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>       <span class="fu">paste</span>(<span class="fu">format</span>(<span class="fu">min</span>(x), <span class="st">"%H:%M"</span>), <span class="st">"-"</span>, <span class="fu">format</span>(<span class="fu">max</span>(x), <span class="st">"%H:%M"</span>))</span>
-<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>     } <span class="cf">else</span> {</span>
-<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>       <span class="fu">paste</span>(<span class="fu">format</span>(x, <span class="st">"%H:%M"</span>), <span class="st">"-"</span>, <span class="fu">format</span>(x, <span class="st">"%H:%M"</span>))</span>
-<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>     }</span>
-<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>   })</span>
-<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>   <span class="fu">return</span>(<span class="fu">unlist</span>(intervalos_continuos))</span>
-<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a> <span class="co"># Ejecutar la función para encontrar el peak continuo de "24 Horas SD+HD"</span></span>
-<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a> intervalos_peak <span class="ot">&lt;-</span> <span class="fu">encontrar_peak_continuo1</span>(peak_data, <span class="st">"24 Horas SD+HD"</span>, <span class="st">"Franjas"</span>)</span>
-<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a> <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Intervalos de tiempo con el peak continuo:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Intervalos de tiempo con el peak continuo:</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">print</span>(intervalos_peak)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              1               2 
 "14:11 - 14:11" "14:12 - 14:12" </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Función para encontrar los intervalos continuos de tiempo con el puntaje máximo</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a> encontrar_peak_continuo <span class="ot">&lt;-</span> <span class="cf">function</span>(intervalos_peak) {</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Convertir los intervalos a formato de horas</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>   tiempos <span class="ot">&lt;-</span> <span class="fu">lapply</span>(intervalos_peak, <span class="cf">function</span>(x) {</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>     horas <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="st">" - "</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">as.POSIXct</span>(horas, <span class="at">format =</span> <span class="st">"%H:%M"</span>)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>   })</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Si solo hay un intervalo, devolverlo tal cual</span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> (<span class="fu">length</span>(tiempos) <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>     <span class="fu">return</span>(<span class="fu">paste</span>(<span class="st">"["</span>, <span class="fu">format</span>(tiempos[[<span class="dv">1</span>]][<span class="dv">1</span>], <span class="st">"%H:%M"</span>), <span class="st">"-"</span>, <span class="fu">format</span>(tiempos[[<span class="dv">1</span>]][<span class="dv">2</span>], <span class="st">"%H:%M"</span>), <span class="st">"&gt;"</span>))</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>   }</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Inicializar variables para agrupar intervalos</span></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>   inicio <span class="ot">&lt;-</span> tiempos[[<span class="dv">1</span>]][<span class="dv">1</span>]</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>   fin <span class="ot">&lt;-</span> tiempos[[<span class="dv">1</span>]][<span class="dv">2</span>]</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>   intervalos_largos <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Agrupar intervalos continuos</span></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">length</span>(tiempos)) {</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> (<span class="fu">difftime</span>(tiempos[[i]][<span class="dv">1</span>], fin, <span class="at">units =</span> <span class="st">"mins"</span>) <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>       fin <span class="ot">&lt;-</span> tiempos[[i]][<span class="dv">2</span>]</span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>     } <span class="cf">else</span> {</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>       intervalos_largos <span class="ot">&lt;-</span> <span class="fu">c</span>(intervalos_largos, <span class="fu">paste</span>(<span class="st">"["</span>, <span class="fu">format</span>(inicio, <span class="st">"%H:%M"</span>), <span class="st">"-"</span>, <span class="fu">format</span>(fin, <span class="st">"%H:%M"</span>), <span class="st">"&gt;"</span>))</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>       inicio <span class="ot">&lt;-</span> tiempos[[i]][<span class="dv">1</span>]</span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>       fin <span class="ot">&lt;-</span> tiempos[[i]][<span class="dv">2</span>]</span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>     }</span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>   }</span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Añadir el último intervalo</span></span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>   intervalos_largos <span class="ot">&lt;-</span> <span class="fu">c</span>(intervalos_largos, <span class="fu">paste</span>(<span class="st">"["</span>, <span class="fu">format</span>(inicio, <span class="st">"%H:%M"</span>), <span class="st">"-"</span>, <span class="fu">format</span>(fin, <span class="st">"%H:%M"</span>), <span class="st">"&gt;"</span>))</span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>   <span class="fu">return</span>(intervalos_largos)</span>
-<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a> intervalos_largos <span class="ot">&lt;-</span> <span class="fu">encontrar_peak_continuo</span>(intervalos_peak)</span>
-<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a> <span class="fu">print</span>(intervalos_largos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "[ 14:11 - 14:12 &gt;"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a> <span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a> <span class="do">####4.2.1.2. 24H Central----</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a> <span class="co">#----------------------------------------------------------#</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a> <span class="co"># Filtrar las filas de data3 donde el título es "24 HORAS CENTRAL"</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a> data3_central <span class="ot">&lt;-</span> data3[data3<span class="sc">$</span>Título <span class="sc">==</span> <span class="st">"24 HORAS CENTRAL"</span>, ]</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a> peak_data_filtrado <span class="ot">&lt;-</span> peak_data[peak_data<span class="sc">$</span>Franjas <span class="sc">&gt;=</span> data3_central<span class="sc">$</span><span class="st">`</span><span class="at">Hora Inicio</span><span class="st">`</span> <span class="sc">&amp;</span> peak_data<span class="sc">$</span>Franjas <span class="sc">&lt;</span> data3_central<span class="sc">$</span><span class="st">`</span><span class="at">Hora Final</span><span class="st">`</span>, ]</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a> <span class="co"># Ejecutar la función para encontrar el peak continuo de "24 Horas SD+HD"</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a> intervalos_peak_c <span class="ot">&lt;-</span> <span class="fu">encontrar_peak_continuo1</span>(peak_data_filtrado, <span class="st">"24 Horas SD+HD"</span>, <span class="st">"Franjas"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in max(data[[variable]], na.rm = TRUE): no non-missing arguments,
-returning NA</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Intervalos de tiempo con el peak continuo:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Intervalos de tiempo con el peak continuo:</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">print</span>(intervalos_peak_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    1 
-" - " </code></pre>
+<pre><code>              1               2               3               4               5 
+"21:58 - 21:58" "22:07 - 22:07" "22:08 - 22:08" "22:09 - 22:09" "22:10 - 22:10" 
+              6               7 
+"22:11 - 22:11" "22:12 - 22:12" </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a> intervalos_largos_c <span class="ot">&lt;-</span> <span class="fu">encontrar_peak_continuo</span>(intervalos_peak_c) </span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a> <span class="co"># Función para limpiar el formato de los intervalos y calcular la duración</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a> calcular_duracion <span class="ot">&lt;-</span> <span class="cf">function</span>(intervalo) {</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>   intervalo <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">[|</span><span class="sc">\\</span><span class="st">&gt;|</span><span class="sc">\\</span><span class="st">s+"</span>, <span class="st">""</span>, intervalo)  <span class="co"># Eliminar corchetes, flechas y espacios adicionales</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>   tiempos <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(intervalo, <span class="st">"-"</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>   inicio <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(tiempos[<span class="dv">1</span>], <span class="at">format =</span> <span class="st">"%H:%M"</span>)</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>   fin <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(tiempos[<span class="dv">2</span>], <span class="at">format =</span> <span class="st">"%H:%M"</span>)</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">return</span>(<span class="fu">as.numeric</span>(<span class="fu">difftime</span>(fin, inicio, <span class="at">units =</span> <span class="st">"mins"</span>)))</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a> <span class="co"># Seleccionar primero el intervalo final para intervalos_largos_c (24 HORAS CENTRAL)</span></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (<span class="fu">length</span>(intervalos_largos_c) <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>   intervalo_final_c <span class="ot">&lt;-</span> intervalos_largos_c[<span class="dv">1</span>]</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a> } <span class="cf">else</span> {</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>   duraciones_c <span class="ot">&lt;-</span> <span class="fu">sapply</span>(intervalos_largos_c, calcular_duracion)</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>   intervalo_final_c <span class="ot">&lt;-</span> intervalos_largos_c[<span class="fu">which.max</span>(duraciones_c)]</span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a> <span class="co"># Seleccionar luego el intervalo final para intervalos_largos (día completo), excluyendo el de 24 HORAS CENTRAL</span></span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (<span class="fu">length</span>(intervalos_largos) <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>   intervalo_final <span class="ot">&lt;-</span> intervalos_largos[<span class="dv">1</span>]</span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a> } <span class="cf">else</span> {</span>
-<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>   candidatos <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(intervalos_largos, intervalo_final_c)</span>
-<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>   candidatos <span class="ot">&lt;-</span> candidatos[<span class="sc">!</span><span class="fu">is.na</span>(candidatos)]  <span class="co"># Eliminar posibles NAs</span></span>
-<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>   duraciones <span class="ot">&lt;-</span> <span class="fu">sapply</span>(candidatos, calcular_duracion)</span>
-<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>   intervalo_final <span class="ot">&lt;-</span> candidatos[<span class="fu">which.max</span>(duraciones)]</span>
-<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a> <span class="co"># Imprimir los intervalos finales seleccionados</span></span>
-<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a> <span class="fu">cat</span>(<span class="st">"Intervalo final para 24 HORAS CENTRAL:"</span>, intervalo_final_c, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Intervalo final para 24 HORAS CENTRAL: [ NA - NA &gt; </code></pre>
+<pre><code>Intervalo final para 24 HORAS CENTRAL: [ 22:07 - 22:12 &gt; </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">cat</span>(<span class="st">"Intervalo final para el día completo:"</span>, intervalo_final, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Intervalo final para el día completo: [ 14:11 - 14:12 &gt; </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> intervalo_final_c, <span class="at">startCol =</span> <span class="dv">4</span>, <span class="at">startRow =</span> <span class="dv">15</span>)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> intervalo_final, <span class="at">startCol =</span> <span class="dv">4</span>, <span class="at">startRow =</span> <span class="dv">16</span>)</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> <span class="fu">max</span>(peak_data_filtrado<span class="sc">$</span><span class="st">`</span><span class="at">24 Horas SD+HD</span><span class="st">`</span>), <span class="at">startCol =</span> <span class="dv">5</span>, <span class="at">startRow =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in max(peak_data_filtrado$`24 Horas SD+HD`): no non-missing arguments,
-returning NA</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">writeData</span>(wb, <span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">x =</span> <span class="fu">max</span>(peak_data<span class="sc">$</span><span class="st">`</span><span class="at">24 Horas SD+HD</span><span class="st">`</span>), <span class="at">startCol =</span> <span class="dv">5</span>, <span class="at">startRow =</span> <span class="dv">16</span>)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">saveWorkbook</span>(wb, archivo_destino, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </main>
