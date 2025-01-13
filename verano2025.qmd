@@ -1,10 +1,10 @@
 ---
-title: "Verano 2025"
+title: "VERANO2025"
 format: html
 editor: visual
 ---
 
-### **Período de vacaciones 2024-2025**
+**Período de vacaciones 2024-2025**
 
 Activa Research 2025:
 
@@ -12,7 +12,7 @@ Activa Research 2025:
 
 -   **El GSE alto (ABC1)** es el segmento con mayor intención de tomar vacaciones, alcanzando un **53,9%**, mientras que el **GSE bajo (DE)** registra un **20,1%**
 
-#### Encuesta Black&White:
+Encuesta Black&White:
 
 -   **44% no se tomará vacaciones por falta de recursos económicos.**
 
@@ -22,7 +22,7 @@ Activa Research 2025:
 
 -   Entre quienes sí tomarán vacaciones durante el 2025, la mayoría relativa **(42%) irá al sur del país**, le sigue la **zona central (29%**) y el **extranjero (26%)**
 
-#### Los destinos preferidos serán:
+Los destinos preferidos serán:
 
 -   **Playa: 62,1%**
 
@@ -74,7 +74,7 @@ Blogs de viajes: Chileestuyo.cl
 
 -   Tianfu Festival
 
-#### **¿Cuál es la emocionalidad de la gente en verano?**
+**¿Cuál es la emocionalidad de la gente en verano?**
 
 -   82% de los chilenos cree que la salud mental es tan importante como la salud física (ipsos, 2024)
 
